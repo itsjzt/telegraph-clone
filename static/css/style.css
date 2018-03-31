@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.page_name {
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.editor {
+  max-width: 732px;
+  margin: 0 auto;
+}
+
+.editor__heading, .editor__name, .editor__post {
+  margin: 8px;
+  border: none;
+  display: block;
+  width: 100%;
+}
+
+.editor__heading {
+  font-size: 2em;
+}
+
+.editor__post {
+  height: 100%;
+}
+
+.submit_btn {
+  padding: 4px 8px;
+  font-family: inherit;
+}
