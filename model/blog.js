@@ -11,9 +11,8 @@ const blogSchema = mongoose.Schema({
     trim: true,
     required: true
   },
-  post: {
+  post_text: {
     type: String,
-    trim: true,
     required: [true, "post is required"]
   },
   date: {

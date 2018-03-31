@@ -1,31 +1,24 @@
-// configs and database
 require("dotenv").config();
-require("./model/connect");
+require("./helpers/connect");
 
 const express = require("express");
-const path = require("path");
 const bodyParser = require("body-parser");
 const app = express();
-const Blog = require("./model/blog");
+const routes = require("./routes/index");
+const { globalError } = require("./helpers/error");
+const logger = require("./helpers/logger");
 
 // express configs
 app.set("views", "./views");
 app.set("view engine", "pug");
-app.use("/static", express.static(path.join(__dirname, "static")));
+app.use(express.static("static"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(logger);
+// routes
+app.use("/", routes);
 
-// const first = new Blog({ title: "cool", username: "hi", post: "hi" });
-// first.save((err, res) => {
-//   if (err) console.error("error", err);
-//   else console.log("done");
-// });
+// error handler
+app.use(globalError);
 
-app.get("/", (req, res) =>
-  res.render("index", { title: "Hey", message: "Hello there!" })
-);
-
-app.post("/post", (req, res) => {
-  res.send(req.body);
-});
-
-app.listen(3000, () => console.log("app listening on port 3000!"));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log("app listening on port 3000!"));

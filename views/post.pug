@@ -1,0 +1,13 @@
+extends base.pug
+
+block alert
+  if firsttime 
+    .alert
+      h3.alert__heading Post published!
+      p.alert__text  you can share it with the URL. 👍
+
+block content 
+  .wrapper
+    h1.page__name #{title}
+    i.username #{username}
+    p.post__text #{post_text}
